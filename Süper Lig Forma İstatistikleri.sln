@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{F8F5132B-2435-4EC7-811B-0C7A43DCA281}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{01F79FF0-A4CD-4879-9F59-2881A2229D9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Süper Lig Forma İstatistikleri.UI", "UI\Süper Lig Forma İstatistikleri.UI\Süper Lig Forma İstatistikleri.UI.csproj", "{E0FA1F69-457C-4863-96A2-DCFF6133E6C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Süper Lig Forma İstatistikleri.Api", "Api\Süper Lig Forma İstatistikleri.Api\Süper Lig Forma İstatistikleri.Api.csproj", "{E8A06ABE-EEB3-4F9C-A151-79A77C2FFD91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{974F898E-D9E5-435D-A35E-2D90C66A0911}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Süper Lig Forma İstatistikleri.Entities", "Entities\Süper Lig Forma İstatistikleri.Entities\Süper Lig Forma İstatistikleri.Entities.csproj", "{7BEE13D4-652D-4824-AF41-89B53FFC270E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0FA1F69-457C-4863-96A2-DCFF6133E6C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0FA1F69-457C-4863-96A2-DCFF6133E6C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0FA1F69-457C-4863-96A2-DCFF6133E6C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0FA1F69-457C-4863-96A2-DCFF6133E6C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A06ABE-EEB3-4F9C-A151-79A77C2FFD91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A06ABE-EEB3-4F9C-A151-79A77C2FFD91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A06ABE-EEB3-4F9C-A151-79A77C2FFD91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A06ABE-EEB3-4F9C-A151-79A77C2FFD91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BEE13D4-652D-4824-AF41-89B53FFC270E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BEE13D4-652D-4824-AF41-89B53FFC270E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BEE13D4-652D-4824-AF41-89B53FFC270E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BEE13D4-652D-4824-AF41-89B53FFC270E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E0FA1F69-457C-4863-96A2-DCFF6133E6C0} = {01F79FF0-A4CD-4879-9F59-2881A2229D9D}
+		{E8A06ABE-EEB3-4F9C-A151-79A77C2FFD91} = {F8F5132B-2435-4EC7-811B-0C7A43DCA281}
+		{7BEE13D4-652D-4824-AF41-89B53FFC270E} = {974F898E-D9E5-435D-A35E-2D90C66A0911}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C182DDA9-E588-4E66-8C2B-FB57D4FAD1D3}
+	EndGlobalSection
+EndGlobal

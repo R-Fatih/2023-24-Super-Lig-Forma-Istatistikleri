@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Süper_Lig_Forma_İstatistikleri.Entities.Entities.Match>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table id="basic-datatable" class="table dt-responsive nowrap">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeMS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayMS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MainId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Week)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayTeam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefereeJersey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeTeamJersey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayTeamJersey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeTeamJerseyGK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AwayTeamJerseyGK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeMS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayMS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Week)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeam.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeam.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefereeJersey.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeamJersey.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeamJersey.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeamJerseyGK.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeamJerseyGK.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee.ImgUrl)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

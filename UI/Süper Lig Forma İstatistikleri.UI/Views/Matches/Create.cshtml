@@ -1,0 +1,157 @@
+﻿@model Süper_Lig_Forma_İstatistikleri.Entities.Entities.Match
+
+@{
+    ViewData["Title"] = "Create";
+
+}
+<script src="~/admin/vertical/assets/js/jquery.min.js"></script>
+<script type="text/javascript">
+         $(document).ready(function () {
+        $("#hometeam").change(function () {
+                 var dID= $(this).val();
+            $.getJSON("../Matches/GetKitsByTeam", { id: dID, type:"team" },
+                        function (data) {
+                            console.log(data);
+                    var select = $("#hometeamjersey");
+                            select.empty();
+
+                            $.each(data, function (index, itemData) {
+                                select.append($('<option/>', {
+                                    value: itemData.value,
+                                    text: itemData.text
+                                }));
+                            });
+                        });
+            $.getJSON("../Matches/GetKitsByTeam", { id: dID, type: "teamgk" },
+                function (data) {
+                    console.log(data);
+                    var select = $("#hometeamgkjersey");
+                    select.empty();
+
+                    $.each(data, function (index, itemData) {
+                        select.append($('<option/>', {
+                            value: itemData.value,
+                            text: itemData.text
+                        }));
+                    });
+                });
+
+             });
+        $("#awayteam").change(function () {
+            var dID = $(this).val();
+            $.getJSON("../Matches/GetKitsByTeam", { id: dID, type: "team" },
+                function (data) {
+                    console.log(data);
+                    var select = $("#awayteamjersey");
+                    select.empty();
+
+                    $.each(data, function (index, itemData) {
+                        select.append($('<option/>', {
+                            value: itemData.value,
+                            text: itemData.text
+                        }));
+                    });
+                });
+            $.getJSON("../Matches/GetKitsByTeam", { id: dID, type: "teamgk" },
+                function (data) {
+                    console.log(data);
+                    var select = $("#awayteamgkjersey");
+                    select.empty();
+
+                    $.each(data, function (index, itemData) {
+                        select.append($('<option/>', {
+                            value: itemData.value,
+                            text: itemData.text
+                        }));
+                    });
+                });
+
+        });
+
+
+    });
+    </script>
+<h1>Create</h1>
+
+<h4>Match</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label  asp-for="HomeTeamId" class="control-label"></label>
+                @Html.DropDownListFor(x => x.HomeTeamId, (List<SelectListItem>)ViewBag.teams, new { @class = "form-control",id="hometeam" })
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeamId" class="control-label"></label>
+                @Html.DropDownListFor(x => x.AwayTeamId, (List<SelectListItem>)ViewBag.teams, new { @class = "form-control", id = "awayteam" })
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeTeamJerseyId" class="control-label"></label>
+                @Html.DropDownListFor(x => x.HomeTeamJerseyId, new SelectList(Enumerable.Empty<SelectListItem>(), 0.ToString(), "Text"), new { @class = "form-control", id = "hometeamjersey" })
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeTeamJerseyGKId" class="control-label"></label>
+                @Html.DropDownListFor(x => x.HomeTeamJerseyGKId, new SelectList(Enumerable.Empty<SelectListItem>(), 0.ToString(), "Text"), new { @class = "form-control", id = "hometeamgkjersey" })
+            </div>
+            <div class="form-group">
+                <label asp-for="RefereeJerseyId" class="control-label"></label>
+                @Html.DropDownListFor(x => x.RefereeJerseyId, (List<SelectListItem>)ViewBag.referees, new { @class = "form-control", id = "hometeam" })
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeamJerseyId" class="control-label"></label>
+                @Html.DropDownListFor(x => x.AwayTeamJerseyId, new SelectList(Enumerable.Empty<SelectListItem>(), 0.ToString(), "Text"), new { @class = "form-control", id = "awayteamjersey" })
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayTeamJerseyGKId" class="control-label"></label>
+                @Html.DropDownListFor(x => x.AwayTeamJerseyGKId, new SelectList(Enumerable.Empty<SelectListItem>(), 0.ToString(), "Text"), new { @class = "form-control", id = "awayteamgkjersey" })
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeMS" class="control-label"></label>
+                <input asp-for="HomeMS" value="@ViewBag.h" class="form-control" />
+                <span asp-validation-for="HomeMS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AwayMS" class="control-label"></label>
+                <input asp-for="AwayMS" value="@ViewBag.a" class="form-control" />
+                <span asp-validation-for="AwayMS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" value="@ViewBag.d" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainId" class="control-label"></label>
+                <input asp-for="MainId" class="form-control" />
+                <span asp-validation-for="MainId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Week" class="control-label"></label>
+                <input asp-for="Week" class="form-control" />
+                <span asp-validation-for="Week" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Maçkolik</label>
+                <input asp-for="Maçkolik" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="RefereeId" class="control-label"></label>
+                <select asp-for="RefereeId" class ="form-control" asp-items="ViewBag.RefereeId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

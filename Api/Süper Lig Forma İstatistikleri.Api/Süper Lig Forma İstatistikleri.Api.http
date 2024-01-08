@@ -1,0 +1,6 @@
+@Süper_Lig_Forma_İstatistikleri.Api_HostAddress = http://localhost:5076
+
+GET {{Süper_Lig_Forma_İstatistikleri.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

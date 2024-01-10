@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Entities\Süper Lig Forma İstatistikleri.Entities\Süper Lig Forma İstatistikleri.Entities.csproj" />
   </ItemGroup>
 

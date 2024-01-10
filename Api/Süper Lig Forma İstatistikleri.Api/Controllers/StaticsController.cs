@@ -89,5 +89,17 @@ namespace Süper_Lig_Forma_İstatistikleri.Api.Controllers
 			var values = _context.Database.SqlQueryRaw<WearedKitsModelReferee>("SELECT   Body,Count(*) as 'KitCount' FROM (   SELECT HomeTeamId,HomeTeamJerseyGKId  FROM match    UNION ALL   SELECT AwayTeamId,AwayTeamJerseyGKId FROM match ) AS combined_matches  inner join Jersey on Jersey.Id=combined_matches.HomeTeamJerseyGKId inner join Team on Team.Id=combined_matches.HomeTeamId   group by Body order by KitCount desc ").ToList();
 			return Ok(values);
 		}
+		[HttpGet("GetMostWearedCouples")]
+		public async Task<IActionResult> GetMostWearedCouples()
+		{
+			var values = _context.Database.SqlQueryRaw<WearedKitsModelCouples>("SELECT   TeamName,Body,(select Body from Jersey where Jersey.Id=HomeTeamJerseyGKId) as 'GKBody',Count(*) as 'KitCount' FROM (   SELECT HomeTeamId,HomeTeamJerseyId,HomeTeamJerseyGKId  FROM match    UNION ALL   SELECT AwayTeamId,AwayTeamJerseyId,AwayTeamJerseyGKId FROM match ) AS combined_matches  inner join Jersey on Jersey.Id=combined_matches.HomeTeamJerseyId inner join Team on Team.Id=combined_matches.HomeTeamId   group by TeamName,Body,HomeTeamJerseyGKId order by KitCount desc").ToList();
+			return Ok(values);
+		}
+		[HttpGet("Get100PercentHomeKitInHome")]
+		public async Task<IActionResult> Get100PercentHomeKitInHome()
+		{
+			var values = _context.Database.SqlQueryRaw<WearedKitsModel100Percent>("SELECT \r\n  TeamId,TeamName,\r\n  Body,\r\n  Count(*) AS 'KitCount',\r\n  (\r\n    SELECT COUNT(*) \r\n    FROM Match \r\n    WHERE HomeTeamId =TeamId\r\n  ) AS 'MatchCount'\r\nFROM (\r\n  SELECT HomeTeamId, HomeTeamJerseyId\r\n  FROM Match\r\n) AS combined_matches \r\nINNER JOIN Jersey ON Jersey.Id = combined_matches.HomeTeamJerseyId\r\nINNER JOIN Team ON Team.Id = combined_matches.HomeTeamId\r\n\r\nGROUP BY TeamId,TeamName, Body\r\nhaving count(*)=(\r\n    SELECT COUNT(*) \r\n    FROM Match \r\n    WHERE HomeTeamId =TeamId\r\n  ) \r\nORDER BY KitCount DESC\r\n").ToList();
+			return Ok(values);
+		}
 	}
 }
